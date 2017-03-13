@@ -3,6 +3,7 @@ import { Contact } from '../models/contact';
 import { CONTACT_DATA} from '../data/contact-data';
 import { ContactsService} from '../contacts.service';
 
+
 @Component({
   selector: 'trm-contacs-list',
   templateUrl: './contacs-list.component.html',
@@ -14,10 +15,17 @@ export class ContacsListComponent implements OnInit {
   
   title = 'Angular 2 Master Class setup works!';
   
-  constructor( private contactsService: ContactsService){}
+  constructor( private contactsService: ContactsService){
+    
+      
+  }
 
   ngOnInit(){
-    this.contacts = this.contactsService.getContacts();
+    this.contactsService.getContacts()
+      .subscribe(contacts => {
+        this.contacts = contacts;
+        console.log(contacts);
+      });
   }
   
 trackByContactId(index, contact){
