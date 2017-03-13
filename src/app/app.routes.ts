@@ -1,5 +1,10 @@
-import { ContacsListComponent } from './contacs-list/contacs-list.component';
+import { ContacsListComponent } from './contacs-list/contacs-list.component';   
+import { ContacsDetailComponent} from './contacs-detail/contacs-detail.component';
 
 export const APP_ROUTES = [
-    {path: 'list', component: ContacsListComponent}]
+    {path: '', pathMatch: 'prefix', component: ContacsListComponent},
+    {path: 'contact/:id', component: ContacsDetailComponent},
+    {path: '**', redirectTo:'/'}
+    
+    ]
     

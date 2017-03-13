@@ -8,10 +8,11 @@ import { ContactsService } from './contacts.service';
 import { ContacsListComponent } from './contacs-list/contacs-list.component';
 import { RouterModule} from '@angular/router';
 import { APP_ROUTES} from './app.routes';
+import { ContacsDetailComponent } from './contacs-detail/contacs-detail.component';
 
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContacsListComponent],
+  declarations: [ContactsAppComponent, ContacsListComponent, ContacsDetailComponent],
   imports: [
     BrowserModule,
     MaterialModule,
