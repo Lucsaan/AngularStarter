@@ -7,21 +7,31 @@
       <md-card-subtitle>{{contact?.email}}</md-card-subtitle>
     </md-card-title-group>
     <md-card-content>
-      <dl>
-        <dt>Phone:</dt>
-        <dd>{{contact?.phone}}</dd>
-        <dt>Website:</dt>
-        <dd>{{contact?.website}}</dd>
-        <dt>Birthday:</dt>
-        <dd>{{contact?.birthday}}</dd>
-        <dt>Street:</dt>
-        <dd>{{contact?.address.street}}</dd>
-        <dt>Zip:</dt>
-        <dd>{{contact?.address.zip}}</dd>
-        <dt>City:</dt>
-        <dd>{{contact?.address.city}}</dd>
-        <dd>{{contact?.id}}</dd>
-      </dl>
+      <trm-tabs>
+        <trm-tab title="General">
+          <dl>
+            <dt>Phone:</dt>
+            <dd>{{contact?.phone}}</dd>
+            <dt>Website:</dt>
+            <dd>{{contact?.website}}</dd>
+            <dt>Birthday:</dt>
+            <dd>{{contact?.birthday}}</dd>
+          </dl>
+        </trm-tab>
+        <trm-tab title="Address">
+          <dl>
+            <dt>Street:</dt>
+          <dd>{{contact?.address.street}}</dd>
+          <dt>Zip:</dt>
+          <dd>{{contact?.address.zip}}</dd>
+          <dt>City:</dt>
+          <dd>{{contact?.address.city}}</dd>
+          <dd>{{contact?.id}}</dd>
+          </dl>
+        </trm-tab>
+      </trm-tabs>
+      
+     
     </md-card-content>
     <md-card-actions fxLayout fxLayoutAlign="center center">
       <a md-button title="Edit Details" (click)="edit.emit(contact)">Edit Details</a>

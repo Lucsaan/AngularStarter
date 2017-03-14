@@ -12,10 +12,12 @@ import { APP_ROUTES} from './app.routes';
 import { ContacsDetailComponent } from './contacs-detail/contacs-detail.component';
 import { ContacsEditorComponent } from './contacs-editor/contacs-editor.component';
 import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-detail-view.component';
+import { TabComponent } from './tabs/tab/tab.component';
+import { TabsComponent } from './tabs/tabs/tabs.component';
 
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContacsListComponent, ContacsDetailComponent, ContacsEditorComponent, ContactsDetailViewComponent],
+  declarations: [ContactsAppComponent, ContacsListComponent, ContacsDetailComponent, ContacsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent],
   imports: [
     BrowserModule,
     MaterialModule,
