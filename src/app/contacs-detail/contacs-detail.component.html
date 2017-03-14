@@ -1,8 +1,8 @@
-
+<
   <div class="trm-contacts-detail">
   <md-card>
     <md-card-title-group class="fullBleed">
-      <img md-card-md-image [src]="contact?.image">
+      <img md-card-md-image [src]="contact?.image || ''">
       <md-card-title>{{contact?.name}}</md-card-title>
       <md-card-subtitle>{{contact?.email}}</md-card-subtitle>
     </md-card-title-group>
@@ -20,12 +20,14 @@
         <dd>{{contact?.address.zip}}</dd>
         <dt>City:</dt>
         <dd>{{contact?.address.city}}</dd>
+        <dd>{{contact?.id}}</dd>
       </dl>
     </md-card-content>
     <md-card-actions fxLayout fxLayoutAlign="center center">
+      <a md-button title="Edit Details" [routerLink]="['edit']">Edit Details</a>
       <a md-button title="Go back to list" [routerLink]="['']">Go Back</a>
     </md-card-actions>
   </md-card>
 </div>
 
-  
+   

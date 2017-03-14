@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../models/contact';
-import { CONTACT_DATA} from '../data/contact-data';
+
 import { ContactsService} from '../contacts.service';
 
 
@@ -24,7 +24,7 @@ export class ContacsListComponent implements OnInit {
     this.contactsService.getContacts()
       .subscribe(contacts => {
         this.contacts = contacts;
-        console.log(contacts);
+        
       });
   }
   
