@@ -5,7 +5,9 @@ import { ContactsService} from '../contacts.service';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
-
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/takeUntil';
 
 @Component({
   selector: 'trm-contacs-list',
@@ -15,8 +17,9 @@ import 'rxjs/add/operator/distinctUntilChanged';
 export class ContacsListComponent implements OnInit {
 
  contacts: Observable<Array<Contact>>;
- searchTerm: any;
+ 
  private terms$ = new Subject<string>();
+ //private terms$ = new Observable<string>();
   
   title = 'Angular 2 Master Class setup works!';
   
@@ -26,11 +29,14 @@ export class ContacsListComponent implements OnInit {
   }
 
   ngOnInit(){
-   this.contacts = this.contactsService.getContacts();
-   this.terms$.debounceTime(400)
-               .distinctUntilChanged()
-               .subscribe(term => this.search(term));
    
+   this.contacts = this.terms$.debounceTime(400).distinctUntilChanged()
+               .switchMap(term => this.contactsService.search(term))
+               .merge(this.contactsService.getContacts().takeUntil(this.terms$)
+               );
+   
+
+
    // wird genutzt, wenn im HTML nicht die Pipe async verwendet wird.
    // Wenn man dennoch subscribed FEHLER!!!!!!
 
