@@ -24,8 +24,8 @@
       </dl>
     </md-card-content>
     <md-card-actions fxLayout fxLayoutAlign="center center">
-      <a md-button title="Edit Details" [routerLink]="['edit']">Edit Details</a>
-      <a md-button title="Go back to list" [routerLink]="['']">Go Back</a>
+      <a md-button title="Edit Details" (click)="edit.emit(contact)">Edit Details</a>
+      <a md-button title="Go back to list" (click)="back.emit()" >Go Back</a>
     </md-card-actions>
   </md-card>
 </div>
