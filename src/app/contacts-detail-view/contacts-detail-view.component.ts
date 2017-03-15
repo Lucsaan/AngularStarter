@@ -20,10 +20,22 @@ export class ContactsDetailViewComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.contactService.getContact(this.route.snapshot.params['id'])
+    
+   /* this.contactService.getContact(this.route.snapshot.params['id'])
     .subscribe(contact => {
       this.contact = contact;
-    })
+    })*/
+   /* this.route.params.subscribe(params => {
+      this.contactService.getContact(params.id)
+      .subscribe(contact => {
+        this.contact = contact;
+      })
+    })*/
+    this.route.params
+    .switchMap(params => this.contactService.getContact(params.id))
+    .subscribe( contact => { this.contact = contact});
+
+
   }
 
   navigateToEditor(){

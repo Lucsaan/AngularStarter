@@ -14,10 +14,12 @@ import { ContacsEditorComponent } from './contacs-editor/contacs-editor.componen
 import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-detail-view.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
+import { ContactsDashboardComponentComponent } from './contacts-dashboard-component/contacts-dashboard-component.component';
+import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContacsListComponent, ContacsDetailComponent, ContacsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent],
+  declarations: [ContactsAppComponent, ContacsListComponent, ContacsDetailComponent, ContacsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponentComponent, ContactsDashboardComponent],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -26,9 +28,17 @@ import { TabsComponent } from './tabs/tabs/tabs.component';
     FormsModule
   ],
   bootstrap: [ContactsAppComponent],
-  providers: [ContactsService, {provide: 'ApiUrl', useValue: 'http://localhost:4201/api'}
+  providers: [
+    ContactsService,
+    {provide: 'ApiUrl', useValue: 'http://localhost:4201/api'},
+    {provide: 'ConfirmNavigationGuard',useValue: doConfirm}
   ]
 })
 export class ContactsModule {
+  
+}
 
+export function doConfirm(component){
+    console.log(component);
+   return  !component.warnOnClosing ||window.confirm('Navigate away without saving?');
 }
