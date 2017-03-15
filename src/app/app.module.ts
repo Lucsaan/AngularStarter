@@ -16,7 +16,7 @@ import { TabComponent } from './tabs/tab/tab.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
 import { ContactsDashboardComponentComponent } from './contacts-dashboard-component/contacts-dashboard-component.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
-
+import { ContactResolver } from './contactResolver';
 
 @NgModule({
   declarations: [ContactsAppComponent, ContacsListComponent, ContacsDetailComponent, ContacsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponentComponent, ContactsDashboardComponent],
@@ -30,6 +30,7 @@ import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashbo
   bootstrap: [ContactsAppComponent],
   providers: [
     ContactsService,
+    ContactResolver,
     {provide: 'ApiUrl', useValue: 'http://localhost:4201/api'},
     {provide: 'ConfirmNavigationGuard',useValue: doConfirm}
   ]
@@ -39,6 +40,5 @@ export class ContactsModule {
 }
 
 export function doConfirm(component){
-    console.log(component);
    return  !component.warnOnClosing ||window.confirm('Navigate away without saving?');
 }

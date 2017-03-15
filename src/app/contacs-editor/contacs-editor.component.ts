@@ -16,15 +16,23 @@ export class ContacsEditorComponent implements OnInit {
 
   contact: Contact = <Contact>{address:{}};
   warnOnClosing = true;
+  data: any;
 
   constructor(private route: ActivatedRoute, private contactsService : ContactsService, private router: Router) { }
 
   ngOnInit() {
+    /*
+          this.route.data
+        .map(data => data['contact'])
+        .subscribe(contact => this.contact = contact);
+
+        console.log(this.contact);*/
+         
     let id = this.route.snapshot.params['id'];
      this.contactsService.getContact(id)
       .subscribe(contact => {
         this.contact = contact;
-        console.log(contact);
+        
       });
   }
 

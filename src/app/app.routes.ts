@@ -4,6 +4,7 @@ import { ContacsEditorComponent } from './contacs-editor/contacs-editor.componen
 import { ContacsListComponent } from './contacs-list/contacs-list.component';   
 import { ContacsDetailComponent } from './contacs-detail/contacs-detail.component';
 import { ContactsDashboardComponent } from "./contacts-dashboard/contacts-dashboard.component";
+import { ContactResolver} from './contactResolver';
 
 export const APP_ROUTES = 
 [
@@ -12,9 +13,23 @@ export const APP_ROUTES =
         pathMatch: 'prefix',
         component: ContactsDashboardComponent,
         children: [
-            {path: '', redirectTo: 'contact/0', pathMatch: 'full' },
-            {path: 'contact/:id/edit', component: ContacsEditorComponent, canDeactivate:['ConfirmNavigationGuard']},
-            {path: 'contact/:id', component: ContactsDetailViewComponent}
+            {
+                path: '',
+                redirectTo: 'contact/0',
+                pathMatch: 'full' 
+            },
+            {
+                path: 'contact/:id/edit',
+                component: ContacsEditorComponent, 
+                canDeactivate:['ConfirmNavigationGuard']
+            },
+            {
+                path: 'contact/:id', 
+                component: ContactsDetailViewComponent,
+                resolve: {
+                    contact : ContactResolver
+                }
+            }
         ]   
     },
     {
