@@ -37,4 +37,9 @@ export class ContactsService {
     .map((data) => {return data.items});
   }
 
+  addContact(contact: Contact){
+    console.log(contact);
+    return this.http.post('http://localhost:4201/api/contacts', contact);
+  }
+
 }

@@ -4,7 +4,8 @@ import { ContacsEditorComponent } from './contacs-editor/contacs-editor.componen
 import { ContacsListComponent } from './contacs-list/contacs-list.component';   
 import { ContacsDetailComponent } from './contacs-detail/contacs-detail.component';
 import { ContactsDashboardComponent } from "./contacts-dashboard/contacts-dashboard.component";
-import { ContactResolver} from './contactResolver';
+import { ContactResolver } from './contactResolver';
+import { ContactsCreatorComponent } from "./contacts-creator/contacts-creator.component";
 
 export const APP_ROUTES = 
 [
@@ -17,6 +18,10 @@ export const APP_ROUTES =
                 path: '',
                 redirectTo: 'contact/0',
                 pathMatch: 'full' 
+            },
+            {
+                path: 'contact/new',
+                component: ContactsCreatorComponent,
             },
             {
                 path: 'contact/:id/edit',

@@ -14,12 +14,12 @@ import { ContacsEditorComponent } from './contacs-editor/contacs-editor.componen
 import { ContactsDetailViewComponent } from './contacts-detail-view/contacts-detail-view.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
-import { ContactsDashboardComponentComponent } from './contacts-dashboard-component/contacts-dashboard-component.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 import { ContactResolver } from './contactResolver';
+import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContacsListComponent, ContacsDetailComponent, ContacsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent, ContactsDashboardComponentComponent, ContactsDashboardComponent],
+  declarations: [ContactsAppComponent, ContacsListComponent, ContacsDetailComponent, ContacsEditorComponent, ContactsDetailViewComponent, TabComponent, TabsComponent,  ContactsDashboardComponent, ContactsCreatorComponent],
   imports: [
     BrowserModule,
     MaterialModule,
